@@ -1,5 +1,5 @@
 const express = require('express')
-const { getAllUser } = require('../controllers/userControllers')
+const { getAllUser, findUser } = require('../controllers/userControllers')
 
 
 const router = express()
@@ -9,6 +9,7 @@ const router = express()
 
 
 router.route('/').get(getAllUser)
+router.route('/').post(findUser)
 
 
 
