@@ -16,7 +16,7 @@
     <title>User management System</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex align-items-center">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">User Management System</a>
         <button
@@ -33,11 +33,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="">Home</a>
+              <a class="nav-link active" aria-current="page" href="/v1/v2">Home</a>
             </li>
             
           </ul>
-          <form class="d-flex" method="POST" action="/api/v1/user" novalidate>
+          <form class="d-flex align-items-center" method="POST" action="/api/v1/user" novalidate>
             <input
               class="form-control me-2"
               type="search"

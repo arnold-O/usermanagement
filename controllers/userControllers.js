@@ -69,3 +69,10 @@ exports.findUser = (req, res)=>{
 
       });
 }
+
+
+exports.addUser = async(req, res, next)=>{
+
+
+    res.render('adduser')
+}

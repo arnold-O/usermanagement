@@ -10,6 +10,7 @@ const router = express()
 
 router.route('/').get(getAllUser)
 router.route('/').post(findUser)
+router.route('/adduser').post(addUser)
 
 
 
