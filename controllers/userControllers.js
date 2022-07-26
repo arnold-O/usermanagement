@@ -73,6 +73,33 @@ exports.findUser = (req, res)=>{
 
 exports.addUser = async(req, res, next)=>{
 
+    const {first_name, last_name, phone, email, comment} = req.body
+
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        console.log(`connected as ID, ${connection.threadId}`);
+
+
+            let searchterm = req.body.search
+        // user connection
+
+        connection.query('INSERT  INTO user SET first_name = ?, last_name = ?, email=?, phone=?, comment=?', [first_name,last_name,email, phone, comment], (err, rows)=>{
+            // when done with the connection
+            connection.release();
+
+            if(!err){
+                console.log(rows)
+                res.render('home', {rows})
+            }else{
+                console.log(err);
+            }
+        })
+
+
+ 
+
+      });
+
 
     res.render('adduser')
 }

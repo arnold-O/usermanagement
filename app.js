@@ -39,7 +39,7 @@ pool.getConnection((err, connection) => {
 });
 
 // Route
-app.use("/api/v1/user", userRoutes);
+app.use("/", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
