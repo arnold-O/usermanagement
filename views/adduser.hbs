@@ -7,6 +7,15 @@
 
 
 
+{{#if alert}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+ {{alert}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+
 <form action="" class="row g-3 needs-validation" method="POST" action="/adduser">
 
 <div class="col-6">
@@ -36,7 +45,7 @@
 </div>
 <div class="col-12">
 <div class="form-floating mb-3">
-  <textarea  class="form-control" id="floatingInput" placeholder="comment" name="comment" style="height:250px; resize:none"></textarea>
+  <textarea  class="form-control" id="floatingInput" placeholder="comment" name="comments" style="height:250px; resize:none"></textarea>
   <label for="floatingInput">comments</label>
 </div>
 </div>

@@ -27,7 +27,7 @@ exports.getAllUser = (req, res)=>{
             connection.release();
 
             if(!err){
-                console.log(rows)
+               
                 res.render('home', {rows})
             }else{
                 console.log(err);
@@ -70,10 +70,15 @@ exports.findUser = (req, res)=>{
       });
 }
 
-
 exports.addUser = async(req, res, next)=>{
 
-    const {first_name, last_name, phone, email, comment} = req.body
+    res.render('adduser')
+
+}
+
+exports.createUser = async(req, res, next)=>{
+
+    const {first_name, last_name, phone, email, comments} = req.body
 
     pool.getConnection((err, connection) => {
         if (err) throw err;
@@ -83,13 +88,13 @@ exports.addUser = async(req, res, next)=>{
             let searchterm = req.body.search
         // user connection
 
-        connection.query('INSERT  INTO user SET first_name = ?, last_name = ?, email=?, phone=?, comment=?', [first_name,last_name,email, phone, comment], (err, rows)=>{
+        connection.query('INSERT  INTO user SET first_name = ?, last_name = ?, email=?, phone=?, comments=?', [first_name,last_name,email, phone, comments], (err, data)=>{
             // when done with the connection
             connection.release();
 
             if(!err){
-                console.log(rows)
-                res.render('home', {rows})
+                
+                res.render('adduser', {alert:"success, .......User registered successfully"} )
             }else{
                 console.log(err);
             }
@@ -101,5 +106,5 @@ exports.addUser = async(req, res, next)=>{
       });
 
 
-    res.render('adduser')
+   
 }
